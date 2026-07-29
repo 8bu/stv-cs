@@ -1,0 +1,20 @@
+# Hệ điều hành
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# File tạm
+*.tmp
+*.bak
+~$*
+
+# Bản build tài liệu (nếu sinh ra)
+/build/
+/dist/
+*.pdf
+*.docx

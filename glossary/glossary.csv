@@ -1,0 +1,58 @@
+term_en,term_vi,tier,pos,usage_form,note
+framework,,A,noun,framework,Giữ nguyên tiếng Anh
+array,,A,noun,array,Giữ nguyên; không dịch "mảng" trong ngữ cảnh code
+pointer,con trỏ,A,noun,pointer,Nhiều biến thể dịch; giữ tiếng Anh
+thread,,A,noun,thread,Phân biệt với process
+process,,A,noun,process,Phân biệt với thread
+cache,,A,noun/verb,cache,Danh từ và động từ
+buffer,,A,noun,buffer,
+endpoint,,A,noun,endpoint,Không dịch "điểm cuối"
+middleware,,A,noun,middleware,
+container,,A,noun,container,
+runtime,,A,noun,runtime,
+compiler,,A,noun,compiler,
+token,,A,noun,token,
+socket,,A,noun,socket,
+overfitting,,A,noun,overfitting,Không dịch "quá khớp"
+gradient,,A,noun,gradient,
+tensor,,A,noun,tensor,
+embedding,,A,noun,embedding,
+latency,,A,noun,latency,Không dịch "độ trễ" trong ngữ cảnh kỹ thuật
+throughput,,A,noun,throughput,Không dịch "thông lượng"
+bug,,A,noun,bug,Không dịch "con bọ"
+staging,,A,noun,staging,Môi trường thử trước production
+production,,A,noun,production,prod
+merge,,A,verb,merge,Gộp nhánh code
+deploy,,A,verb,deploy,Đưa code lên môi trường chạy
+rollback,,A,verb,rollback,Quay về phiên bản trước
+build,,A,verb,build,Biên dịch và đóng gói
+parse,,A,verb,parse,Phân tích cú pháp
+debug,,A,verb,debug,Tìm và định vị lỗi
+refactor,,A,verb,refactor,Sửa cấu trúc code, giữ hành vi
+deprecate,,A,verb,deprecate,
+machine learning,học máy,B,noun,machine learning,Chú thích Việt lần đầu
+supervised learning,học có giám sát,B,noun,supervised learning,
+unsupervised learning,học không giám sát,B,noun,unsupervised learning,
+reinforcement learning,học tăng cường,B,noun,reinforcement learning,
+deep learning,học sâu,B,noun,deep learning,
+training data,dữ liệu huấn luyện,B,noun,training data,
+feature extraction,trích xuất đặc trưng,B,noun,feature extraction,
+classification,phân loại,B,noun,classification,
+regression,hồi quy,B,noun,regression,
+clustering,phân cụm,B,noun,clustering,
+neural network,mạng nơ-ron,B,noun,neural network,
+train,huấn luyện,B,verb,train,Huấn luyện mô hình
+variable,biến,C,noun,biến,
+function,hàm,C,noun,hàm,
+loop,vòng lặp,C,noun,vòng lặp,
+statement,câu lệnh,C,noun,câu lệnh,
+data type,kiểu dữ liệu,C,noun,kiểu dữ liệu,
+file,tệp,C,noun,tệp,
+directory,thư mục,C,noun,thư mục,
+memory,bộ nhớ,C,noun,bộ nhớ,
+network,mạng,C,noun,mạng,
+server,máy chủ,C,noun,máy chủ,
+database,cơ sở dữ liệu,C,noun,cơ sở dữ liệu,CSDL
+record,bản ghi,C,noun,bản ghi,
+accuracy,độ chính xác,C,noun,độ chính xác,
+test,kiểm thử,C,verb,kiểm thử,

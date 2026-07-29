@@ -1,0 +1,39 @@
+name: Build PDF
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PDF: TVKTDGH-KHMT.pdf
+  MD: spec/TVKTDGH-KHMT.md
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Typst
+        uses: typst-community/setup-typst@v4
+        with:
+          typst-version: latest
+
+      - name: Compile PDF
+        run: typst compile --root . typst/paper.typ "$PDF"
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: TVKTDGH-KHMT
+          path: |
+            ${{ env.PDF }}
+            ${{ env.MD }}
+          if-no-files-found: error
