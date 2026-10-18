@@ -13,6 +13,10 @@ Thumbs.db
 *.bak
 ~$*
 
+# Python
+__pycache__/
+*.py[cod]
+
 # Bản build tài liệu (nếu sinh ra)
 /build/
 /dist/
