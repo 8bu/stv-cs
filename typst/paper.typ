@@ -31,7 +31,7 @@
   #v(8pt)
   #text(size: 11pt, style: "italic", fill: luma(35%))[Simplified Technical Vietnamese for Computer Science]
   #v(2.2cm)
-  #text(size: 11pt)[Phiên bản 0.1.0 · 29-07-2026] // x-release-please-version
+  #text(size: 11pt)[Phiên bản 0.1.0] // x-release-please-version
   #v(5pt)
   #text(size: 10pt, fill: luma(35%))[© 2026 8bu · Giấy phép CC BY 4.0]
   #v(1fr)
@@ -42,7 +42,8 @@
 #outline(title: [Mục lục], depth: 2, indent: auto)
 #pagebreak()
 
-// ---- Body: render Markdown, stripping the leading title block ----
+// ---- Body: render Markdown after the explicit standard marker ----
 #let src = read("/spec/TVKTDGH-KHMT.md")
-#let body = src.split("\n---\n").slice(1).join("\n---\n")
+#let marker = "<!-- BEGIN STANDARD -->"
+#let body = src.split(marker).at(1)
 #cmarker.render(body, h1-level: 1)

@@ -13,6 +13,7 @@ permissions:
 env:
   PDF: TVKTDGH-KHMT.pdf
   MD: spec/TVKTDGH-KHMT.md
+  CSV: glossary/glossary.csv
 
 jobs:
   build:
@@ -24,7 +25,7 @@ jobs:
       - name: Set up Typst
         uses: typst-community/setup-typst@v4
         with:
-          typst-version: latest
+          typst-version: 0.13.1
 
       - name: Compile PDF
         run: typst compile --root . typst/paper.typ "$PDF"
@@ -36,4 +37,5 @@ jobs:
           path: |
             ${{ env.PDF }}
             ${{ env.MD }}
+            ${{ env.CSV }}
           if-no-files-found: error

@@ -11,6 +11,7 @@ permissions:
 env:
   PDF: TVKTDGH-KHMT.pdf
   MD: spec/TVKTDGH-KHMT.md
+  CSV: glossary/glossary.csv
 
 jobs:
   release-please:
@@ -31,14 +32,14 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         uses: typst-community/setup-typst@v4
         with:
-          typst-version: latest
+          typst-version: 0.13.1
 
       - name: Compile PDF
         if: ${{ steps.release.outputs.release_created }}
         run: typst compile --root . typst/paper.typ "$PDF"
 
-      - name: Attach PDF + Markdown to the release
+      - name: Attach release artifacts
         if: ${{ steps.release.outputs.release_created }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload "${{ steps.release.outputs.tag_name }}" "$PDF" "$MD" --clobber
+        run: gh release upload "${{ steps.release.outputs.tag_name }}" "$PDF" "$MD" "$CSV" --clobber
