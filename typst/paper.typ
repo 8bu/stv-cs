@@ -31,7 +31,7 @@
   #v(8pt)
   #text(size: 11pt, style: "italic", fill: luma(35%))[Simplified Technical Vietnamese for Computer Science]
   #v(2.2cm)
-  #text(size: 11pt)[Phiên bản 0.1.0] // x-release-please-version
+  #text(size: 11pt)[Phiên bản 0.2.0] // x-release-please-version
   #v(5pt)
   #text(size: 10pt, fill: luma(35%))[© 2026 8bu · Giấy phép CC BY 4.0]
   #v(1fr)

@@ -1,7 +1,7 @@
 # TVKTĐGH/KHMT — Tiếng Việt Kỹ thuật Đơn giản hóa cho Khoa học Máy tính
 
 **Simplified Technical Vietnamese for Computer Science (STV-CS)**  
-Phiên bản 0.1.0 <!-- x-release-please-version -->
+Phiên bản 0.2.0 <!-- x-release-please-version -->
 
 TVKTĐGH/KHMT là chuẩn ngôn ngữ kiểm soát cho tài liệu khoa học máy tính bằng tiếng Việt.
 Chuẩn này phỏng theo nguyên tắc của ASD-STE100 Issue 9. Chuẩn này không phải bản dịch của ASD-STE100.
