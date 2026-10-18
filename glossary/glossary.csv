@@ -1,58 +1,159 @@
-term_en,term_vi,tier,pos,usage_form,note
-framework,,A,noun,framework,Giữ nguyên tiếng Anh
-array,,A,noun,array,Giữ nguyên; không dịch "mảng" trong ngữ cảnh code
-pointer,con trỏ,A,noun,pointer,Nhiều biến thể dịch; giữ tiếng Anh
-thread,,A,noun,thread,Phân biệt với process
-process,,A,noun,process,Phân biệt với thread
-cache,,A,noun/verb,cache,Danh từ và động từ
-buffer,,A,noun,buffer,
-endpoint,,A,noun,endpoint,Không dịch "điểm cuối"
-middleware,,A,noun,middleware,
-container,,A,noun,container,
-runtime,,A,noun,runtime,
-compiler,,A,noun,compiler,
-token,,A,noun,token,
-socket,,A,noun,socket,
-overfitting,,A,noun,overfitting,Không dịch "quá khớp"
-gradient,,A,noun,gradient,
-tensor,,A,noun,tensor,
-embedding,,A,noun,embedding,
-latency,,A,noun,latency,Không dịch "độ trễ" trong ngữ cảnh kỹ thuật
-throughput,,A,noun,throughput,Không dịch "thông lượng"
-bug,,A,noun,bug,Không dịch "con bọ"
-staging,,A,noun,staging,Môi trường thử trước production
-production,,A,noun,production,prod
-merge,,A,verb,merge,Gộp nhánh code
-deploy,,A,verb,deploy,Đưa code lên môi trường chạy
-rollback,,A,verb,rollback,Quay về phiên bản trước
-build,,A,verb,build,Biên dịch và đóng gói
-parse,,A,verb,parse,Phân tích cú pháp
-debug,,A,verb,debug,Tìm và định vị lỗi
-refactor,,A,verb,refactor,Sửa cấu trúc code, giữ hành vi
-deprecate,,A,verb,deprecate,
-machine learning,học máy,B,noun,machine learning,Chú thích Việt lần đầu
-supervised learning,học có giám sát,B,noun,supervised learning,
-unsupervised learning,học không giám sát,B,noun,unsupervised learning,
-reinforcement learning,học tăng cường,B,noun,reinforcement learning,
-deep learning,học sâu,B,noun,deep learning,
-training data,dữ liệu huấn luyện,B,noun,training data,
-feature extraction,trích xuất đặc trưng,B,noun,feature extraction,
-classification,phân loại,B,noun,classification,
-regression,hồi quy,B,noun,regression,
-clustering,phân cụm,B,noun,clustering,
-neural network,mạng nơ-ron,B,noun,neural network,
-train,huấn luyện,B,verb,train,Huấn luyện mô hình
-variable,biến,C,noun,biến,
-function,hàm,C,noun,hàm,
-loop,vòng lặp,C,noun,vòng lặp,
-statement,câu lệnh,C,noun,câu lệnh,
-data type,kiểu dữ liệu,C,noun,kiểu dữ liệu,
-file,tệp,C,noun,tệp,
-directory,thư mục,C,noun,thư mục,
-memory,bộ nhớ,C,noun,bộ nhớ,
-network,mạng,C,noun,mạng,
-server,máy chủ,C,noun,máy chủ,
-database,cơ sở dữ liệu,C,noun,cơ sở dữ liệu,CSDL
-record,bản ghi,C,noun,bản ghi,
-accuracy,độ chính xác,C,noun,độ chính xác,
-test,kiểm thử,C,verb,kiểm thử,
+canonical,english_equivalent,language_policy,part_of_speech,approved_meaning,scope,first_use_form,forbidden_alternatives,approved_example,non_approved_example,note
+framework,,A,noun,bộ khung code có sẵn để xây ứng dụng,software,,khung phần mềm,Dự án dùng framework Django.,Dự án dùng khung phần mềm Django.,
+array,,A,noun,"dãy phần tử cùng kiểu, truy cập theo chỉ số",data structure,,mảng,Duyệt array từ đầu đến cuối.,Duyệt mảng từ đầu đến cuối.,"Không dịch ""mảng"" trong ngữ cảnh code"
+pointer,,A,noun,biến lưu địa chỉ bộ nhớ của một giá trị,programming,,con trỏ|biến trỏ,`pointer` trỏ đến đầu array.,Con trỏ trỏ đến đầu array.,Nhiều biến thể dịch; giữ tiếng Anh
+thread,,A,noun,"luồng chạy trong một process, dùng chung bộ nhớ với các thread khác",operating system,,,Mỗi request chạy trên một thread riêng.,Mỗi request chạy trên một luồng riêng.,Phân biệt với process
+process,,A,noun,"chương trình đang chạy, có không gian bộ nhớ riêng",operating system,,,Process con thoát khi process cha dừng.,Tiến trình con thoát khi tiến trình cha dừng.,"Phân biệt với thread; không cấm ""tiến trình"" ngoài ngữ cảnh hệ điều hành"
+cache,,A,noun,vùng lưu tạm dữ liệu để đọc lại nhanh,performance,,bộ nhớ đệm,Xóa cache sau khi deploy.,Xóa bộ nhớ đệm sau khi deploy.,
+buffer,,A,noun,vùng nhớ tạm giữ dữ liệu trong lúc chuyển giữa hai bên,programming,,bộ đệm,Buffer đầy thì dừng ghi.,Bộ đệm đầy thì dừng ghi.,
+stack,,A,noun,cấu trúc dữ liệu lấy phần tử vào sau ra trước,data structure,,ngăn xếp,Dùng stack để kiểm tra dấu ngoặc.,Dùng ngăn xếp để kiểm tra dấu ngoặc.,
+heap,,A,noun,vùng bộ nhớ cấp phát động khi chương trình chạy,memory,,,Object lớn nằm trên heap.,Object lớn nằm trên vùng nhớ động.,Khác với heap là cấu trúc cây ưu tiên; chuẩn này chỉ dùng nghĩa bộ nhớ
+queue,,A,noun,cấu trúc dữ liệu lấy phần tử vào trước ra trước,data structure,,,Dùng queue để duyệt đồ thị theo chiều rộng.,Dùng hàng đợi để duyệt đồ thị theo chiều rộng.,"Với nghĩa chung, không phải cấu trúc dữ liệu, dùng ""hàng đợi"""
+hash,,A,noun,giá trị cố định tính từ dữ liệu bằng hash function,programming,,giá trị băm|mã băm,So sánh hash của hai tệp.,So sánh giá trị băm của hai tệp.,
+token,,A,noun,đơn vị nhỏ nhất của chuỗi đầu vào mà parser hoặc model đọc,language processing,,,Compiler tách mã nguồn thành token.,Compiler tách mã nguồn thành thẻ.,"Nghĩa bảo mật xem dòng riêng, phạm vi security"
+token,,A,noun,chuỗi ký tự chứng minh quyền truy cập,security,,mã thông hành,Gửi token trong header của request.,Gửi mã thông hành trong header của request.,
+socket,,A,noun,điểm đầu cuối của kết nối mạng trong chương trình,networking,,ổ cắm,Đóng socket sau khi gửi xong.,Đóng ổ cắm sau khi gửi xong.,
+endpoint,,A,noun,địa chỉ API nhận request,api,,điểm cuối,Endpoint trả response JSON.,Điểm cuối trả response JSON.,"Không dịch ""điểm cuối"""
+middleware,,A,noun,lớp code xử lý request trước hoặc sau handler,software,,phần mềm trung gian,Middleware kiểm tra token trước handler.,Phần mềm trung gian kiểm tra token trước handler.,
+container,,A,noun,môi trường chạy cô lập chứa ứng dụng và phụ thuộc của nó,infrastructure,,thùng chứa,Chạy service trong một container.,Chạy service trong một thùng chứa.,
+runtime,,A,noun,môi trường thực thi chương trình,programming,,thời gian chạy,Cài runtime Python 3 trước khi chạy script.,Cài môi trường thời gian chạy Python 3 trước khi chạy script.,
+compiler,,A,noun,chương trình dịch mã nguồn sang mã máy hoặc bytecode,programming,,trình biên dịch,Compiler báo lỗi ở dòng 12.,Trình biên dịch báo lỗi ở dòng 12.,
+linker,,A,noun,chương trình ghép các tệp object thành một tệp chạy được,programming,,trình liên kết,Linker báo thiếu symbol.,Trình liên kết báo thiếu symbol.,
+boolean,,A,noun,kiểu dữ liệu chỉ có hai giá trị đúng và sai,programming,,giá trị luận lý,Hàm trả về một boolean.,Hàm trả về một giá trị luận lý.,
+enum,,A,noun,kiểu dữ liệu gồm một tập giá trị có tên cố định,programming,,kiểu liệt kê,Khai báo một enum cho trạng thái đơn hàng.,Khai báo một kiểu liệt kê cho trạng thái đơn hàng.,
+struct,,A,noun,kiểu dữ liệu gom nhiều trường thành một khối,programming,,,Struct `Point` có hai trường.,Cấu trúc `Point` có hai trường.,
+interface,,A,noun,tập chữ ký hàm mà một kiểu phải cài đặt,programming,,,Class cài đặt interface `Reader`.,Class cài đặt giao diện `Reader`.,
+closure,,A,noun,hàm giữ lại biến của phạm vi nơi nó được tạo,programming,,hàm đóng,Closure giữ biến `count` sau khi hàm ngoài kết thúc.,Hàm đóng giữ biến `count` sau khi hàm ngoài kết thúc.,
+callback,,A,noun,hàm được truyền vào hàm khác để gọi lại sau,programming,,hàm gọi lại,Truyền callback vào `fetchUser()`.,Truyền hàm gọi lại vào `fetchUser()`.,
+promise,,A,noun,đối tượng đại diện cho kết quả của một việc chạy bất đồng bộ,programming,,lời hứa,`fetch()` trả về một promise.,`fetch()` trả về một lời hứa.,
+deadlock,,A,noun,tình trạng các thread chờ nhau mãi nên không thread nào chạy tiếp,concurrency,,khóa chết|bế tắc,Hai thread giữ lock của nhau gây deadlock.,Hai thread giữ lock của nhau gây khóa chết.,
+race condition,,A,noun,lỗi xảy ra khi kết quả phụ thuộc vào thứ tự chạy của các thread,concurrency,,điều kiện tranh đua,Race condition làm bộ đếm sai.,Điều kiện tranh đua làm bộ đếm sai.,
+overfitting,,A,noun,tình trạng model khớp quá mức với training data,machine learning,,quá khớp,Thêm dữ liệu để giảm overfitting.,Thêm dữ liệu để giảm quá khớp.,"Không dịch ""quá khớp"""
+gradient,,A,noun,vector đạo hàm riêng của hàm mất mát,machine learning,,,Gradient lớn làm training không ổn định.,Độ dốc lớn làm training không ổn định.,
+tensor,,A,noun,mảng nhiều chiều dùng để chứa dữ liệu của model,machine learning,,ten-xơ,Chuyển ảnh thành tensor.,Chuyển ảnh thành ten-xơ.,
+embedding,,A,noun,vector số biểu diễn một đối tượng như từ hoặc ảnh,machine learning,,vector nhúng,Lưu embedding của mỗi câu.,Lưu vector nhúng của mỗi câu.,
+epoch,,A,noun,một lượt model học qua toàn bộ training data,machine learning,,kỷ nguyên,Train model trong 10 epoch.,Train model trong 10 kỷ nguyên.,
+batch,,A,noun,nhóm mẫu dữ liệu xử lý cùng lúc trong một bước train,machine learning,,kích thước lô,Chọn batch size là 32.,Chọn kích thước lô là 32.,
+feature,,A,noun,biến đầu vào mô tả một mẫu dữ liệu của model,machine learning,,đặc trưng,Thêm một feature cho model.,Thêm một đặc trưng cho model.,Nghĩa chức năng sản phẩm không thuộc mục này
+label,,A,noun,giá trị đúng gán cho một mẫu training data,machine learning,,,Mỗi mẫu có một label.,Mỗi mẫu có một nhãn.,"Không cấm ""nhãn"" ngoài ngữ cảnh machine learning"
+checkpoint,,A,noun,bản lưu trạng thái của model trong lúc train,machine learning,,điểm kiểm tra,Lưu checkpoint sau mỗi epoch.,Lưu điểm kiểm tra sau mỗi epoch.,
+latency,,A,noun,khoảng thời gian từ lúc gửi request đến lúc nhận response,performance,,độ trễ,Latency của endpoint vượt 200 ms.,Độ trễ của endpoint vượt 200 ms.,"Không dịch ""độ trễ"" trong ngữ cảnh kỹ thuật"
+throughput,,A,noun,số việc xử lý mỗi đơn vị thời gian,performance,,thông lượng,Tăng throughput của queue.,Tăng thông lượng của queue.,"Không dịch ""thông lượng"""
+bug,,A,noun,lỗi phần mềm,software,,con bọ,Bug này làm app đóng đột ngột.,Con bọ này làm app đóng đột ngột.,"Không dịch ""con bọ"""
+staging,,A,noun,môi trường thử trước production,infrastructure,,môi trường dàn dựng,Deploy service lên staging trước.,Deploy service lên môi trường dàn dựng trước.,
+production,,A,noun,môi trường chạy thật,infrastructure,,môi trường sản xuất,Không chạy lệnh này trên production.,Không chạy lệnh này trên môi trường sản xuất.,Dạng ngắn: prod
+prod,,A,noun,dạng ngắn của production,infrastructure,,,Log trên prod có lỗi mới.,Log trên môi trường chạy thật có lỗi mới.,Chỉ dùng trong văn bản không trang trọng; xem production
+deploy,,A,noun,lần đưa code lên môi trường chạy,release,,sự triển khai,Deploy tối qua gây lỗi.,Sự triển khai tối qua gây lỗi.,
+commit,,A,noun,một lần ghi thay đổi vào repo,version control,,bản giao nộp,Commit này sửa hàm đăng nhập.,Bản giao nộp này sửa hàm đăng nhập.,
+pull request,,A,noun,yêu cầu gộp code để review,version control,,yêu cầu kéo,Mở pull request cho nhánh `feature/login`.,Mở yêu cầu kéo cho nhánh `feature/login`.,Viết tắt: PR
+PR,,A,noun,dạng viết tắt của pull request,version control,,yêu cầu kéo,PR này fix lỗi đăng nhập.,Yêu cầu kéo này fix lỗi đăng nhập.,Giải thích lần đầu: pull request (PR)
+repo,,A,noun,kho lưu mã nguồn và lịch sử thay đổi,version control,,kho mã,Clone repo về máy.,Clone kho mã về máy.,
+branch,,A,noun,dòng phát triển riêng trong repo,version control,,,Tạo branch `feature/login` từ `main`.,Tạo nhánh `feature/login` từ `main`.,"Cụm ""merge nhánh"" vẫn dùng cho động từ merge theo mục hình thái"
+service,,A,noun,chương trình chạy độc lập và nhận request qua mạng,architecture,,dịch vụ,Deploy service lên staging.,Triển khai dịch vụ lên môi trường dàn dựng.,
+replica,,A,noun,bản chạy giống hệt của một service,infrastructure,,bản sao,Tăng số replica của service.,Tăng số bản sao của service.,
+pod,,A,noun,"đơn vị chạy nhỏ nhất của Kubernetes, chứa một hoặc nhiều container",infrastructure,,,Chạy 3 `pod`.,Chạy 3 `pods`.,"Không thêm ""s"" số nhiều"
+request,,A,noun,thông điệp client gửi đến server để yêu cầu một việc,api,,,Middleware xử lý request trước handler.,Yêu cầu được gửi đến điểm cuối.,
+response,,A,noun,thông điệp server trả lại cho client,api,,,Parse response JSON.,Phân tích phản hồi JSON.,
+handler,,A,noun,hàm nhận và xử lý một request hoặc một event,software,,,Debug hàm `handler()`.,Debug hàm xử lý.,
+image,,A,noun,tệp đóng gói sẵn dùng để tạo container,infrastructure,,ảnh Docker,Build lại Docker image.,Build lại ảnh Docker.,Nghĩa ảnh hình không thuộc mục này
+log,,A,noun,bản ghi sự kiện do hệ thống tạo ra,operations,,nhật ký,Đọc log của service.,Đọc nhật ký của service.,
+user,,A,noun,tài khoản hoặc đối tượng người dùng trong code và dữ liệu,software,,,Endpoint trả danh sách user.,Endpoint trả danh sách người dùng.,"Nói về con người dùng sản phẩm thì dùng ""người dùng"""
+admin,,A,noun,người có quyền quản trị hệ thống,operations,,người quản trị,Gửi thông báo cho admin.,Gửi thông báo cho người quản trị.,
+library,,A,noun,bộ code có sẵn để chương trình khác gọi,software,,thư viện,Cài library này bằng `pip`.,Cài thư viện này bằng `pip`.,
+codebase,,A,noun,toàn bộ mã nguồn của một dự án,software,,cơ sở mã,Logic này lặp ở nhiều nơi trong codebase.,Logic này lặp ở nhiều nơi trong cơ sở mã.,
+module,,A,noun,"đơn vị code có tên, gom các hàm liên quan",software,,mô-đun,Refactor module `auth`.,Refactor mô-đun `auth`.,
+logic,,A,noun,phần code quyết định hành vi của chương trình,software,,,Logic kiểm tra quyền lặp ở nhiều nơi.,Lô-gic kiểm tra quyền lặp ở nhiều nơi.,
+coverage,,A,noun,tỷ lệ code được test chạy qua,testing,,độ phủ,Coverage của module `auth` là 80%.,Độ phủ của module `auth` là 80%.,
+linter,,A,noun,công cụ kiểm tra style và lỗi thường gặp của code,tooling,,,Chạy linter trước khi commit.,Chạy công cụ kiểm tra style trước khi commit.,
+test,,A,noun,kịch bản tự động kiểm tra hành vi của code,testing,,bài kiểm tra,Thêm test cho hàm `parse()`.,Thêm bài kiểm tra cho hàm `parse()`.,
+test suite,,A,noun,tập các test chạy cùng nhau,testing,,bộ kiểm thử,Chạy full test suite trước khi merge.,Chạy toàn bộ bộ kiểm thử trước khi merge.,
+model,,A,noun,hàm đã được train để dự đoán hoặc sinh đầu ra từ đầu vào,machine learning,,mô hình,Train model trên tập mới.,Huấn luyện mô hình trên tập mới.,
+input,,A,noun,dữ liệu đưa vào chương trình hoặc model,programming,,,Kiểm tra input trước khi parse.,Kiểm tra dữ liệu nhập trước khi parse.,
+error rate,,A,noun,tỷ lệ request lỗi trên tổng số request,operations,,tỷ lệ lỗi,"Nếu error rate vượt 1%, rollback deploy.","Nếu tỷ lệ lỗi vượt 1%, rollback deploy.",
+code review,,A,noun,việc người khác đọc và nhận xét thay đổi code,process,,xét duyệt mã,Ghi chú code review nêu rõ file và dòng.,Ghi chú xét duyệt mã nêu rõ file và dòng.,
+design doc,,A,noun,tài liệu mô tả thiết kế trước khi viết code,documentation,,,Viết design doc trước khi code.,Viết tài liệu thiết kế trước khi code.,
+README,,A,noun,tệp giới thiệu và hướng dẫn dùng một dự án,documentation,,,Thêm bước cài đặt vào README.,Thêm bước cài đặt vào tệp đọc tôi.,
+runbook,,A,noun,tài liệu hướng dẫn từng bước vận hành hệ thống,operations,,sổ tay vận hành,Cập nhật runbook sau sự cố.,Cập nhật sổ tay vận hành sau sự cố.,
+incident report,,A,noun,báo cáo mô tả một sự cố vận hành,operations,,,Viết incident report trong 48 giờ.,Viết báo cáo sự cố trong 48 giờ.,Đồng nghĩa: postmortem
+postmortem,,A,noun,bản phân tích nguyên nhân sau một sự cố,operations,,,Họp postmortem sau sự cố.,Họp phân tích hậu kiểm sau sự cố.,
+model card,,A,noun,"tài liệu mô tả mục đích, dữ liệu, và giới hạn của model",machine learning,,thẻ mô hình,Cập nhật model card sau mỗi lần train lại.,Cập nhật thẻ mô hình sau mỗi lần train lại.,
+data card,,A,noun,tài liệu mô tả nguồn gốc và đặc điểm của một bộ dữ liệu,machine learning,,thẻ dữ liệu,Thêm nguồn dữ liệu vào data card.,Thêm nguồn dữ liệu vào thẻ dữ liệu.,
+commit message,,A,noun,đoạn mô tả đi kèm một commit,version control,,,Viết commit message ở dạng mô tả.,Viết thông điệp commit ở dạng mô tả.,
+agent,,A,noun,chương trình dùng LLM để tự chọn và gọi công cụ nhằm hoàn thành việc,agent,,tác tử|đại lý,Agent chạy test rồi báo kết quả.,Tác tử chạy test rồi báo kết quả.,
+prompt,,A,noun,văn bản đầu vào đưa cho LLM,agent,,,Ghi rõ mục tiêu trong prompt.,Ghi rõ mục tiêu trong lời nhắc.,"Không cấm ""lời nhắc"" với nghĩa nhắc nhở"
+IDE,integrated development environment,A,abbreviation,"môi trường phát triển tích hợp gồm editor, debugger và công cụ build",tooling,,,IDE đánh dấu lỗi cú pháp.,Môi trường phát triển tích hợp đánh dấu lỗi cú pháp.,Dạng đầy đủ: integrated development environment
+commit,,A,verb,ghi một thay đổi vào repo,version control,,giao nộp,Commit thay đổi này vào `main`.,Giao nộp thay đổi này vào `main`.,
+push,,A,verb,gửi commit từ repo cục bộ lên repo từ xa,version control,,,Push branch lên remote.,Đẩy nhánh lên remote.,
+pull,,A,verb,lấy commit mới từ repo từ xa về repo cục bộ,version control,,,Pull `main` trước khi tạo branch.,Kéo `main` trước khi tạo branch.,
+merge,,A,verb,gộp nhánh code,version control,,,Merge branch `feature/login` vào `main`.,Thực hiện việc gộp nhánh.,
+rebase,,A,verb,đặt lại các commit của một branch lên đầu một branch khác,version control,,,Rebase branch lên `main`.,Gắn lại nền nhánh lên `main`.,
+deploy,,A,verb,đưa code lên môi trường chạy,release,,sự triển khai,Deploy service lên staging.,Triển khai service lên môi trường dàn dựng.,"Nghĩa tổ chức xem ""triển khai"""
+build,,A,verb,biên dịch và đóng gói,release,,,Build lại Docker image.,Dựng lại Docker image.,
+build,,A,noun,kết quả hoặc lần chạy biên dịch và đóng gói,release,,,Build trên `main` đang đỏ.,Bản dựng trên `main` đang đỏ.,
+compile,,A,verb,dịch mã nguồn sang mã máy hoặc bytecode,programming,,,Compile module `core` với cờ debug.,Biên dịch module `core` với cờ debug.,
+debug,,A,verb,tìm và định vị lỗi,software,,gỡ lỗi,Debug hàm `handler()`.,Gỡ lỗi hàm `handler()`.,
+refactor,,A,verb,"sửa cấu trúc code, giữ hành vi",software,,tái cấu trúc,Refactor module `auth`.,Tái cấu trúc module `auth`.,
+rollback,,A,verb,quay về phiên bản trước,release,,,"Nếu lỗi, rollback về `v1.2.0`.","Nếu lỗi, quay lui về `v1.2.0`.",
+fork,,A,verb,sao chép một repo thành bản riêng của mình,version control,,,Fork repo rồi sửa trên bản của bạn.,Rẽ nhánh repo rồi sửa trên bản của bạn.,
+mount,,A,verb,gắn một ổ đĩa hoặc volume vào hệ thống tệp,operating system,,,Mount volume vào `/data`.,Gắn volume vào `/data`.,
+cache,,A,verb,lưu tạm dữ liệu để đọc lại nhanh,performance,,lưu đệm,Cache kết quả truy vấn trong 5 phút.,Lưu đệm kết quả truy vấn trong 5 phút.,
+parse,,A,verb,phân tích cú pháp đầu vào,programming,,,Parse response JSON.,Phân tích response JSON.,
+render,,A,verb,tạo ra hình ảnh hoặc HTML từ dữ liệu,programming,,kết xuất,Render trang từ template.,Kết xuất trang từ template.,
+import,,A,verb,nạp code hoặc dữ liệu từ nơi khác vào,programming,,,Import module `auth`.,Nhập module `auth`.,
+export,,A,verb,xuất code hoặc dữ liệu ra để nơi khác dùng,programming,,,Export dữ liệu ra tệp CSV.,Xuất khẩu dữ liệu ra tệp CSV.,
+deprecate,,A,verb,đánh dấu một API hoặc tính năng sắp bị bỏ,software,,,Deprecate endpoint `/v1/login`.,Đánh dấu lỗi thời endpoint `/v1/login`.,
+spawn,,A,verb,tạo một process hoặc thread mới,operating system,,,Spawn một thread cho mỗi request.,Sinh ra một thread cho mỗi request.,
+throttle,,A,verb,giới hạn tốc độ xử lý hoặc gửi request,performance,,,Throttle request về 100 mỗi giây.,Bóp nghẹt request về 100 mỗi giây.,
+benchmark,,A,verb,đo hiệu năng của code trong điều kiện cố định,performance,,,Benchmark hàm `parse()` trước và sau khi refactor.,Đánh giá chuẩn hàm `parse()` trước và sau khi refactor.,
+fix,,A,verb,sửa một lỗi cho chương trình chạy đúng,software,,,Fix bug này.,Xử lý cái bug này.,
+handle,,A,verb,nhận và trả lời một request hoặc event trong code,software,,,Hàm `handler()` handle lỗi timeout.,Hàm `handler()` xử lý lỗi timeout.,"Tránh ""xử lý"" mơ hồ; xem QT 3.2"
+log,,A,verb,ghi một sự kiện vào log,operations,,,Log lỗi và gửi thông báo cho admin.,Ghi log lại lỗi và gửi thông báo cho admin.,
+review,,A,verb,đọc và nhận xét thay đổi code hoặc tài liệu,process,,,Review PR này trước 17 giờ.,Thực hiện việc review PR này trước 17 giờ.,
+backup,,A,verb,sao lưu dữ liệu để khôi phục khi mất,operations,,,Backup cơ sở dữ liệu trước khi chạy lệnh.,Tiến hành backup cơ sở dữ liệu trước khi chạy lệnh.,
+load,,A,verb,tải dữ liệu hoặc trang vào bộ nhớ để dùng,software,,,Trang chủ load chậm trên thiết bị di động.,Trang chủ tải chậm trên thiết bị di động.,
+pass,,A,verb,chạy xong và đạt mọi kiểm tra,testing,,,Bảo đảm CI pass.,Bảo đảm CI vượt qua.,
+API,application programming interface,A,abbreviation,giao diện để chương trình này gọi chương trình khác,api,,,API trả về mã lỗi 404.,Giao diện lập trình ứng dụng trả về mã lỗi 404.,Giữ nguyên dạng gốc (QT 1.5.2); giải thích lần đầu
+JSON,JavaScript Object Notation,A,abbreviation,định dạng văn bản trao đổi dữ liệu theo cặp khóa và giá trị,api,,,Endpoint trả response JSON.,Endpoint trả response Jây-xân.,Giữ nguyên dạng gốc
+SQL,Structured Query Language,A,abbreviation,ngôn ngữ truy vấn cơ sở dữ liệu quan hệ,database,,,Viết câu truy vấn SQL cho báo cáo.,Viết câu truy vấn ngôn ngữ hỏi có cấu trúc cho báo cáo.,Giữ nguyên dạng gốc
+HTTP,Hypertext Transfer Protocol,A,abbreviation,giao thức truyền dữ liệu giữa client và server trên web,networking,,,Endpoint chỉ nhận HTTP POST.,Endpoint chỉ nhận giao thức truyền siêu văn bản POST.,Giữ nguyên dạng gốc
+CI,continuous integration,A,abbreviation,hệ thống tự build và test mỗi lần có commit mới,tooling,,,CI chạy test cho mỗi PR.,Tích hợp liên tục chạy test cho mỗi PR.,Phần của CI/CD
+CI/CD,continuous integration and continuous delivery,A,abbreviation,"quy trình tự build, test, và deploy code",tooling,,,CI/CD tự deploy lên staging.,Tích hợp và phân phối liên tục tự deploy lên staging.,Giữ nguyên dạng gốc (QT 1.5.2)
+CLI,command-line interface,A,abbreviation,chương trình điều khiển bằng lệnh gõ trong terminal,tooling,,,Chạy `tool --help` trong CLI.,Chạy `tool --help` trong giao diện dòng lệnh.,Giữ nguyên dạng gốc
+ML,machine learning,A,abbreviation,ngành cho máy học từ dữ liệu,machine learning,,,Tài liệu ML gồm model card và data card.,Tài liệu HM gồm model card và data card.,Giữ nguyên dạng gốc (QT 1.5.2); không tạo lại theo QT 1.5.1
+SVM,support vector machine,A,abbreviation,thuật toán phân loại tìm ranh giới rộng nhất giữa các lớp,machine learning,,,Dùng SVM cho bài toán classification này.,Dùng máy vector hỗ trợ cho bài toán classification này.,Giữ nguyên dạng gốc (QT 1.5.2)
+LLM,large language model,A,abbreviation,"model ngôn ngữ cỡ lớn, train trên lượng văn bản rất lớn",agent,,,Agent gọi LLM để sinh patch.,Tác tử gọi mô hình ngôn ngữ lớn để sinh patch.,Giữ nguyên dạng gốc
+machine learning,,B,noun,ngành cho máy học từ dữ liệu,machine learning,machine learning (học máy),,Machine learning (học máy) cần training data.,Học máy cần training data.,Chú thích Việt lần đầu
+supervised learning,,B,noun,học từ dữ liệu có label,machine learning,supervised learning (học có giám sát),,Dùng supervised learning (học có giám sát) cho bài toán này.,Dùng học có giám sát cho bài toán này.,
+unsupervised learning,,B,noun,học từ dữ liệu không có label,machine learning,unsupervised learning (học không giám sát),,Unsupervised learning (học không giám sát) tìm cấu trúc trong dữ liệu.,Học không giám sát tìm cấu trúc trong dữ liệu.,
+reinforcement learning,,B,noun,học bằng cách thử hành động và nhận phần thưởng,machine learning,reinforcement learning (học tăng cường),,Reinforcement learning (học tăng cường) dùng phần thưởng làm tín hiệu.,Học tăng cường dùng phần thưởng làm tín hiệu.,
+deep learning,,B,noun,học bằng neural network nhiều tầng,machine learning,deep learning (học sâu),,Deep learning (học sâu) cần nhiều dữ liệu.,Học sâu cần nhiều dữ liệu.,
+training data,,B,noun,dữ liệu dùng để train model,machine learning,training data (dữ liệu huấn luyện),,Training data (dữ liệu huấn luyện) có label.,Dữ liệu huấn luyện có label.,
+training set,,B,noun,phần dữ liệu dùng để train model,machine learning,training set (tập huấn luyện),,Chia training set (tập huấn luyện) và test set.,Chia tập huấn luyện và test set.,
+test set,,B,noun,phần dữ liệu dùng để đánh giá model sau khi train,machine learning,test set (tập kiểm thử),,Đánh giá accuracy trên test set (tập kiểm thử).,Đánh giá accuracy trên tập kiểm thử.,
+feature extraction,,B,noun,biến dữ liệu thô thành feature,machine learning,feature extraction (trích xuất đặc trưng),,Feature extraction (trích xuất đặc trưng) chạy trước khi train.,Trích xuất đặc trưng chạy trước khi train.,
+feature engineering,,B,noun,việc chọn và tạo feature cho model,machine learning,feature engineering (kỹ thuật đặc trưng),,Feature engineering (kỹ thuật đặc trưng) giúp tăng accuracy.,Kỹ thuật đặc trưng giúp tăng accuracy.,
+classification,,B,noun,bài toán gán mỗi mẫu vào một lớp,machine learning,classification (phân loại),,Classification (phân loại) ảnh thành mèo hoặc chó.,Phân loại ảnh thành mèo hoặc chó.,
+regression,,B,noun,bài toán dự đoán một giá trị số liên tục,machine learning,regression (hồi quy),,Regression (hồi quy) dự đoán giá nhà.,Hồi quy dự đoán giá nhà.,
+clustering,,B,noun,bài toán chia mẫu thành các nhóm giống nhau,machine learning,clustering (phân cụm),,Clustering (phân cụm) nhóm khách hàng theo hành vi.,Phân cụm nhóm khách hàng theo hành vi.,
+neural network,,B,noun,model gồm các tầng nút nối với nhau,machine learning,neural network (mạng nơ-ron),,Neural network (mạng nơ-ron) có ba tầng.,Mạng nơ-ron có ba tầng.,
+train,,B,verb,điều chỉnh tham số của model từ dữ liệu,machine learning,train (huấn luyện),,Train (huấn luyện) model trên tập mới.,Huấn luyện model trên tập mới.,Huấn luyện mô hình
+biến,variable,C,noun,tên chỉ một vùng nhớ lưu giá trị,programming,,,Khai báo biến `count` trước vòng lặp.,Khai báo variable `count` trước vòng lặp.,
+hàm,function,C,noun,"khối code có tên, nhận tham số và trả về giá trị",programming,,,Gọi hàm `parse()` hai lần.,Gọi function `parse()` hai lần.,
+vòng lặp,loop,C,noun,cấu trúc chạy lặp một khối code,programming,,,Thoát vòng lặp khi hết phần tử.,Thoát loop khi hết phần tử.,
+câu lệnh,statement,C,noun,một lệnh hoàn chỉnh trong chương trình,programming,,,Câu lệnh `return` kết thúc hàm.,Statement `return` kết thúc hàm.,
+kiểu dữ liệu,data type,C,noun,loại giá trị mà một biến có thể giữ,programming,,,Kiểu dữ liệu của `count` là số nguyên.,Data type của `count` là số nguyên.,
+tệp,file,C,noun,đơn vị lưu dữ liệu có tên trong hệ thống tệp,operating system,,,Đọc tệp `config.yaml`.,Đọc file `config.yaml`.,
+thư mục,directory,C,noun,nơi chứa tệp và thư mục con,operating system,,,Tạo thư mục `build/`.,Tạo directory `build/`.,
+bộ nhớ,memory,C,noun,nơi chương trình lưu dữ liệu khi chạy,operating system,,,Chương trình dùng 2 GB bộ nhớ.,Chương trình dùng 2 GB memory.,
+mạng,network,C,noun,hệ thống kết nối các máy để trao đổi dữ liệu,networking,,,Máy mất kết nối mạng.,Máy mất kết nối network.,
+máy chủ,server,C,noun,máy hoặc chương trình nhận và trả lời request,networking,,,Máy chủ trả response sau 50 ms.,Server trả response sau 50 ms.,
+cơ sở dữ liệu,database,C,noun,nơi lưu dữ liệu có cấu trúc,database,,,Kiểm tra cơ sở dữ liệu có bị nghẽn không.,Kiểm tra database có bị nghẽn không.,Viết tắt: CSDL
+CSDL,database,C,abbreviation,dạng viết tắt của cơ sở dữ liệu,database,,CSD,Cơ sở dữ liệu (CSDL) lưu đơn hàng. CSDL chạy trên máy chủ riêng.,Dùng CSDL trước khi giải thích.,Giải thích lần đầu theo QT 1.5.3
+KHMT,computer science,C,abbreviation,dạng viết tắt của Khoa học Máy tính,education,,KHM,Khoa học Máy tính (KHMT) là ngành học này.,Dùng KHM cho Khoa học Máy tính.,"Theo QT 1.5.1; bỏ tiếng ""tính"" là sai"
+TTNT,artificial intelligence,C,abbreviation,dạng viết tắt của trí tuệ nhân tạo,education,,TTN,Trí tuệ nhân tạo (TTNT) gồm cả học máy.,Dùng TTN cho trí tuệ nhân tạo.,Theo QT 1.5.1
+bản ghi,record,C,noun,một dòng dữ liệu trong cơ sở dữ liệu,database,,,Xóa bản ghi cũ.,Xóa record cũ.,
+độ chính xác,accuracy,C,noun,tỷ lệ dự đoán đúng của model,machine learning,,,Đo độ chính xác của model trên test set (tập kiểm thử).,Đo accuracy của model trên test set (tập kiểm thử).,
+kiểm thử,test,C,verb,chạy test để tìm lỗi,testing,,,Kiểm thử API trước khi merge.,Test API trước khi merge.,"Danh từ ""test"" là Tầng A, xem row test"
+hàng đợi,queue,C,noun,"dãy người hoặc việc xếp chờ theo thứ tự, không nói về cấu trúc dữ liệu",general,,,Có 12 việc trong hàng đợi chờ duyệt.,Có 12 việc trong queue chờ duyệt.,Với cấu trúc dữ liệu dùng `queue` (Tầng A)
+người dùng,user,C,noun,người dùng sản phẩm hoặc hệ thống,general,,,Người dùng nhập sai mật khẩu quá nhiều lần.,User nhập sai mật khẩu quá nhiều lần.,Với tài khoản hoặc đối tượng trong code dùng `user` (Tầng A)
+triển khai,roll out,C,verb,đưa một quy trình hoặc chính sách vào áp dụng trong tổ chức,organization,,,Triển khai quy trình review mới cho cả nhóm.,Triển khai service lên production.,Không dùng cho deploy code

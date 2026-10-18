@@ -1,34 +1,73 @@
-# Đóng góp cho TVKTĐGH‑100/KHMT
+# Đóng góp cho TVKTĐGH/KHMT
 
-Cảm ơn bạn góp sức. Tài liệu này là chuẩn sống; nó cải thiện theo phản hồi thực tế.
+Mọi thay đổi PHẢI giữ spec, glossary và validator đồng bộ.
 
-## Quy tắc chung
+## Nguyên tắc chung
 
-- Viết mọi issue, PR, và tài liệu theo đúng chuẩn TVKTĐGH.
-- Một PR, một thay đổi rõ ràng. Không gộp nhiều thay đổi không liên quan.
-- Mô tả PR nêu: thay đổi gì, vì sao, ảnh hưởng tới quy tắc/thuật ngữ nào.
+- Một pull request chỉ chứa một thay đổi có mục đích rõ ràng.
+- Mô tả pull request nêu thay đổi, lý do và phạm vi ảnh hưởng.
+- Dùng số hiệu quy tắc hoặc dạng `canonical` của thuật ngữ khi có thể.
+- Không sửa phần glossary được sinh trong spec bằng tay.
 
-## Thêm hoặc sửa thuật ngữ
+## Sửa thuật ngữ
 
-1. Sửa `glossary/glossary.csv`. Giữ đúng thứ tự cột.
-2. Gán tầng cho thuật ngữ theo cây quyết định (Phụ lục B của chuẩn):
-   - Xuất hiện trong code/log/API/CLI → **A** (giữ tiếng Anh).
-   - Khái niệm học thuật có tên Việt phổ biến → **B** (Anh + chú thích Việt).
-   - Từ vựng cơ bản, ổn định → **C** (ưu tiên Việt).
-3. Ghi lý do trong PR nếu chuyển tầng một thuật ngữ đã có.
+`glossary/glossary.csv` là nguồn sự thật duy nhất.
 
-## Sửa quy tắc viết
+1. Thêm hoặc sửa row trong CSV.
+2. Chọn đúng `language_policy`, từ loại, nghĩa và phạm vi.
+3. Thêm ví dụ đúng và ví dụ sai.
+4. Ghi lý do nếu thay đổi dạng chuẩn hoặc policy hiện có.
+5. Chạy `make sync`.
+6. Chạy `make check` và `make test`.
 
-- Nêu số hiệu quy tắc (ví dụ: QT 4.1).
-- Kèm ví dụ **Không dùng / Dùng** cho quy tắc mới hoặc sửa.
+Một dạng có nhiều từ loại hoặc nghĩa PHẢI có nhiều row.
+Dùng `|` để phân tách nhiều giá trị trong `forbidden_alternatives`.
 
-## Quy trình
+## Sửa quy tắc
 
-1. Fork repo và tạo branch: `feature/<mô-tả-ngắn>`.
-2. Commit message viết theo chuẩn (câu mệnh lệnh, ngắn). Ví dụ: `Thêm thuật ngữ "idempotent" vào tầng A`.
-3. Mở pull request. Ít nhất một reviewer duyệt.
-4. Cập nhật `CHANGELOG.md` nếu thay đổi ảnh hưởng người dùng.
+Mỗi thay đổi quy tắc PHẢI có:
+
+- Số hiệu ổn định.
+- Lý do thay đổi.
+- Ví dụ **Không dùng / Dùng**.
+- Ghi chú migration nếu output hợp lệ trước đây trở thành không hợp lệ.
+- Fixture nếu validator kiểm tra quy tắc.
+
+Không đổi số hiệu của quy tắc không liên quan.
+
+## Sửa Agent profile
+
+Nêu rõ thay đổi ảnh hưởng đến cấu trúc output hay độ tin cậy của output.
+Không biến quy tắc an toàn hoặc hành vi sản phẩm thành quy tắc ngôn ngữ nếu hai nội dung không liên quan.
+
+## Kiểm tra trước pull request
+
+```bash
+make sync
+make check
+make test
+make pdf
+```
+
+`make sync` KHÔNG ĐƯỢC tạo diff sau khi đã commit bảng glossary mới.
+
+## Commit và release
+
+Dùng Conventional Commits. Ví dụ:
+
+```text
+feat: thêm quy tắc cho modal tiếng Việt
+fix: đồng bộ nghĩa của queue trong glossary
+docs: giải thích quy trình thêm thuật ngữ
+```
+
+Không sửa `CHANGELOG.md`, version hoặc tag bằng tay. Release-please quản lý các giá trị này.
 
 ## Báo lỗi
 
-Mở issue. Nêu: vị trí (file, số hiệu quy tắc), lỗi là gì, đề xuất sửa.
+Issue PHẢI nêu:
+
+- File và số hiệu quy tắc hoặc thuật ngữ.
+- Hành vi hiện tại.
+- Hành vi mong muốn.
+- Ví dụ tối thiểu tái hiện vấn đề.

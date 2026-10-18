@@ -1,0 +1,7 @@
+canonical,english_equivalent,language_policy,part_of_speech,approved_meaning,scope,first_use_form,forbidden_alternatives,approved_example,non_approved_example,note
+endpoint,endpoint,A,noun,Địa chỉ nhận request của API,api,,điểm cuối|đầu cuối,Gọi endpoint này.,Gọi điểm cuối này.,Không dịch
+cache,cache,A,noun,Vùng nhớ đệm,hệ thống,,,Xóa cache.,,
+cache,cache,A,verb,Lưu tạm kết quả,hệ thống,,,Cache kết quả này.,,
+pipe,pipe,A,noun,Ký tự | nối lệnh shell,shell,,,Dùng pipe để nối lệnh.,,
+machine learning,machine learning,B,noun,Ngành học máy,ai,machine learning (học máy),,Dùng machine learning (học máy) để phân loại.,Dùng học máy để phân loại.,Chú thích lần đầu
+tải lên,upload,C,verb,Gửi tệp lên máy chủ,mạng,,upload,Tải lên tệp.,Upload tệp.,

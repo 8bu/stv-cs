@@ -1,62 +1,83 @@
 # TVKTĐGH/KHMT
 
-**Tiếng Việt Kỹ thuật Đơn giản hóa cho Khoa học Máy tính**
-*Simplified Technical Vietnamese for Computer Science (STV‑CS)*
+**Tiếng Việt Kỹ thuật Đơn giản hóa cho Khoa học Máy tính**  
+*Simplified Technical Vietnamese for Computer Science (STV-CS)*
 
-Chuẩn ngôn ngữ kiểm soát để viết tài liệu khoa học máy tính (KHMT) bằng tiếng Việt. Mô hình theo [ASD‑STE100](https://www.asd-ste100.org/). Mục tiêu: tài liệu rõ, nhất quán, dễ đọc cho kỹ sư.
+TVKTĐGH/KHMT là chuẩn ngôn ngữ kiểm soát cho tài liệu khoa học máy tính bằng tiếng Việt. Chuẩn phỏng theo nguyên tắc của [ASD-STE100 Issue 9](https://asd-ste100.org/assets/files/ASD-STE100_ISSUE9.pdf), nhưng không phải bản dịch của ASD-STE100.
 
-> **TVKTĐGH** = **T**iếng **V**iệt **K**ỹ **t**huật **Đ**ơn **g**iản **h**óa (lấy chữ cái đầu của từng tiếng). **/KHMT** = **K**hoa **h**ọc **M**áy **t**ính.
+## Kiến trúc
 
-## Nguyên tắc cốt lõi
+Chuẩn có ba lớp trong một tài liệu phát hành:
 
-- Câu ngắn, một câu một lệnh, dùng câu chủ động.
-- **Giữ thuật ngữ chuyên ngành ở tiếng Anh.** Chỉ dịch khi có từ tiếng Việt chuẩn và không mơ hồ.
-- Thuật ngữ chia 3 tầng: **A** (giữ tiếng Anh), **B** (Anh + chú thích Việt lần đầu), **C** (ưu tiên Việt).
+1. **Chuẩn lõi** quy định từ, câu, thủ tục, mô tả và cảnh báo.
+2. **KHMT profile** quy định thuật ngữ và token kỹ thuật.
+3. **Agent profile** quy định cấu trúc và độ tin cậy của output do agent tạo.
+
+`glossary/glossary.csv` là nguồn sự thật duy nhất cho thuật ngữ. `make sync` sinh controlled dictionary trong spec từ CSV.
 
 ## Nội dung repo
 
 | Đường dẫn | Nội dung |
 |---|---|
-| [`spec/TVKTDGH-KHMT.md`](spec/TVKTDGH-KHMT.md) | Toàn văn chuẩn: quy tắc viết, từ điển, **14 ví dụ trước/sau** (Phần 3), hướng dẫn áp dụng. |
-| [`glossary/glossary.csv`](glossary/glossary.csv) | Từ điển máy đọc: thuật ngữ, tầng A/B/C, dạng dùng, chú thích. |
-| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Cách góp ý và thêm thuật ngữ mới. |
-| [`CHANGELOG.md`](CHANGELOG.md) | Lịch sử phiên bản. |
-| [`typst/paper.typ`](typst/paper.typ) | Template Typst để build spec ra PDF. |
-| [`.github/workflows/build-pdf.yml`](.github/workflows/build-pdf.yml) | CI: build PDF mỗi push/PR (lưu artifact để kiểm tra). |
-| [`.github/workflows/release-please.yml`](.github/workflows/release-please.yml) | Tự động hóa release: version, CHANGELOG, tag, Release (đính PDF + Markdown). |
+| [`spec/TVKTDGH-KHMT.md`](spec/TVKTDGH-KHMT.md) | Toàn văn chuẩn và controlled dictionary đã sinh. |
+| [`glossary/glossary.csv`](glossary/glossary.csv) | Nguồn thuật ngữ máy đọc. |
+| [`tools/validate.py`](tools/validate.py) | Công cụ đồng bộ, kiểm tra repo và lint tài liệu. |
+| [`tests/`](tests/) | Fixture và test hành vi của validator. |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Quy trình sửa quy tắc và thuật ngữ. |
+| [`typst/paper.typ`](typst/paper.typ) | Template PDF của bản chuẩn. |
 
 ## Bắt đầu nhanh
 
-1. Đọc [`spec/TVKTDGH-KHMT.md`](spec/TVKTDGH-KHMT.md), tập trung Phần 1 (quy tắc) và mục 2.1 (chính sách 3 tầng).
-2. Lập glossary cho team dựa trên [`glossary/glossary.csv`](glossary/glossary.csv).
-3. Dùng checklist tuân thủ (Phần 4) khi review tài liệu và pull request.
+```bash
+make sync   # Sinh bảng thuật ngữ trong spec từ glossary.csv
+make check  # Kiểm tra glossary, spec và reference quy tắc
+make test   # Chạy test của validator
+make pdf    # Build TVKTDGH-KHMT.pdf
+```
+
+Lint một tài liệu:
+
+```bash
+python3 tools/validate.py lint path/to/document.md
+```
+
+Validator báo ba mức:
+
+- `error`: vi phạm xác định được và chặn phát hành.
+- `warning`: vấn đề cần người review.
+- `info`: gợi ý không chặn phát hành.
+
+## Quy trình sửa thuật ngữ
+
+1. Sửa `glossary/glossary.csv`.
+2. Chạy `make sync`.
+3. Chạy `make check` và `make test`.
+4. Commit cả CSV và spec đã đồng bộ.
+
+Không sửa bảng glossary được sinh trong spec bằng tay.
 
 ## Build PDF
 
-PDF được build từ Markdown spec bằng [Typst](https://typst.app) (package `cmarker`).
-
-Build tại máy:
+Cài [Typst](https://typst.app), sau đó chạy:
 
 ```bash
-make pdf        # hoặc: typst compile --root . typst/paper.typ TVKTDGH-KHMT.pdf
+make pdf
 ```
 
-CI tự build mỗi lần push `main` hoặc mở PR — PDF nằm trong build artifacts để kiểm tra.
+CI kiểm tra validator, test và PDF trên mỗi pull request.
 
-## Release (tự động, release-please)
+## Release
 
-Không cần gõ tay version hay tag. Chỉ cần commit theo [Conventional Commits](https://www.conventionalcommits.org/) (`feat:`, `fix:`, `docs:`…):
+Repo dùng [release-please](https://github.com/googleapis/release-please). Dùng [Conventional Commits](https://www.conventionalcommits.org/):
 
-1. Push commit lên `main`.
-2. [release-please](https://github.com/googleapis/release-please) mở sẵn một **release PR** — gom thay đổi, tự tính version, cập nhật `CHANGELOG.md`.
-3. Merge PR đó → nó tạo git tag + **GitHub Release**, và đính kèm **PDF + Markdown**.
+- `feat:` cho thay đổi quy tắc hoặc khả năng mới.
+- `fix:` cho sửa lỗi chuẩn, glossary hoặc validator.
+- `docs:` cho thay đổi không làm đổi hành vi chuẩn.
 
-Version hiển thị trong spec và title page (dòng có `x-release-please-version`) được bump tự động.
-
-## Đóng góp
-
-Xem [`CONTRIBUTING.md`](CONTRIBUTING.md). Mọi tài liệu và góp ý viết theo đúng chuẩn TVKTĐGH.
+Sau khi release PR được merge, workflow tạo tag và GitHub Release. Release đính kèm Markdown, glossary và PDF.
 
 ## License
 
-[CC BY 4.0](https://github.com/8bu/stv-cs/blob/main/LICENSE) — © 2026 8bu. Free to use with attribution.
+[CC BY 4.0](LICENSE) — © 2026 8bu.
+
+ASD-STE100 là tài sản của ASD. Repo này chỉ tham khảo các nguyên tắc công khai và không tái bản nội dung chuẩn ASD-STE100.

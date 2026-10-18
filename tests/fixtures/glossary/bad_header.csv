@@ -1,0 +1,2 @@
+canonical,english_equivalent,part_of_speech,language_policy,approved_meaning,scope,first_use_form,forbidden_alternatives,approved_example,non_approved_example,note
+endpoint,endpoint,noun,A,Địa chỉ nhận request,api,,,Gọi endpoint này.,,
